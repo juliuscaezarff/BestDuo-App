@@ -32,6 +32,7 @@ export function Home() {
         )}
         showsHorizontalScrollIndicator={false}
         horizontal
+        contentContainerStyle={styles.contentList}
       />
 
     </View>
