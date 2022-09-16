@@ -8,7 +8,7 @@ import { CreateAdBanner } from './components/CreateAdBanner'
 
 function App() {
 
-  const [] = useState()
+  const [games, setGames] = useState([])
 
   return (
     <div className="max-w-[1344px] mx-auto flex flex-col items-center my-20">
