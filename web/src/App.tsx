@@ -10,6 +10,15 @@ function App() {
 
   const [games, setGames] = useState([])
 
+  useEffect(() => {
+    fetch('http://localhost:3333/games')
+      .then(response => response.json())
+      .then(data => {
+        setGames(data)
+      })
+
+  }, [])
+
   return (
     <div className="max-w-[1344px] mx-auto flex flex-col items-center my-20">
       <img src={logo} alt="Logo NLW eSports" />
