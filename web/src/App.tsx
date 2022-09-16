@@ -1,4 +1,4 @@
-import { MagnifyingGlassPlus } from 'phosphor-react'
+import { useState, useEffect } from 'react'
 import { GameBanner } from './components/GameBanner'
 
 import './styles/main.css'
@@ -7,6 +7,9 @@ import logo from './assets/logo-nlw-esports.svg'
 import { CreateAdBanner } from './components/CreateAdBanner'
 
 function App() {
+
+  const [] = useState()
+
   return (
     <div className="max-w-[1344px] mx-auto flex flex-col items-center my-20">
       <img src={logo} alt="Logo NLW eSports" />
