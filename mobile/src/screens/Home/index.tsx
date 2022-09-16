@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { View, Image, FlatList } from 'react-native';
 
 import logoImg from '../../assets/logo-nlw-esports.png'
