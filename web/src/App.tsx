@@ -4,6 +4,7 @@ import { GameBanner } from './components/GameBanner'
 import './styles/main.css'
 
 import logo from './assets/logo-nlw-esports.svg'
+import { CreateAdBanner } from './components/CreateAdBanner'
 
 function App() {
   return (
@@ -23,7 +24,7 @@ function App() {
         <GameBanner bannerUrl='/game-2.png' title="Dota 2" adsCount={5} />
       </div>
 
-      
+      <CreateAdBanner />
     </div>
   )
 }
