@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
-import { View, Image, FlatList } from 'react-native'
+import { Image, FlatList } from 'react-native'
+import { SafeAreaView } from 'react-native-safe-area-context'
 
 import logoImg from '../../assets/logo-nlw-esports.png'
 
@@ -19,7 +20,7 @@ export function Home() {
   }, [])
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <Image source={logoImg} style={styles.logo} />
 
       <Heading
@@ -35,6 +36,6 @@ export function Home() {
         horizontal
         contentContainerStyle={styles.contentList}
       />
-    </View>
+    </SafeAreaView>
   )
 }
