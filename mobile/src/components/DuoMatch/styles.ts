@@ -16,9 +16,13 @@ export const styles = StyleSheet.create({
     justifyContent: 'center',
 
   },
+  closeIcon: {
+    alignSelf: 'flex-end',
+    margin: 16
+  },
   discord: {
     color: THEME.COLORS.TEXT,
     fontSize: THEME.FONT_SIZE.MD,
     fontFamily: THEME.FONT_FAMILY.REGULAR
-  }
+  },
 });
