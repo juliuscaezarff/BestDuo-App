@@ -17,7 +17,7 @@ interface Game {
 export function CreateAdModal() {
 
   const [games, setGames] = useState<Game[]>([])
-  const [weekDays, setWeekDays] = useState<string[]>([])
+  const [weekDay, setWeekDay] = useState<string[]>([])
   const [useVoiceChannel, setUseVoiceChannel] = useState(false)
 
   useEffect(() => {
@@ -27,13 +27,32 @@ export function CreateAdModal() {
       })
   }, [])
 
-  function handleCreateAd(event: FormEvent ) {
+  async function handleCreateAd(event: FormEvent ) {
     event.preventDefault()
     
     const formData = new FormData(event.target as HTMLFormElement)
     const data = Object.fromEntries(formData)
 
-    console.log(data)
+    if(!data.name) {
+      return
+    }
+
+    try{
+     await axios.post(`http://localhost:3333/games/${data.game}/ads`, {
+      name: data.name,
+      yearsPlaying: Number(data.yearsPlaying),
+      discord: data.discord,
+      weekDay: weekDay.map(Number),
+      hourStart: data.hourStart,
+      hourEnd: data.hourEnd,
+      useVoiceChannel: useVoiceChannel,
+    })
+
+    alert('Anúncio criado com sucesso!')
+    } catch(err) {
+      console.log(err)
+      alert('Erro ao criar o anúncio!')
+    }
   }
 
   return (
@@ -93,55 +112,55 @@ export function CreateAdModal() {
                     <ToggleGroup.Root 
                       type='multiple' 
                       className='grid grid-cols-4 gap-2'
-                      value={weekDays}
-                      onValueChange={setWeekDays}
+                      value={weekDay}
+                      onValueChange={setWeekDay}
                       >
                       <ToggleGroup.Item  
                         value="0"
                         title='Domingo'
-                        className={`w-8 h-8 rounded ${weekDays.includes('0') ? 'bg-violet-500' : 'bg-zinc-900 '}`}
+                        className={`w-8 h-8 rounded ${weekDay.includes('0') ? 'bg-violet-500' : 'bg-zinc-900 '}`}
                         >
                           D
                       </ToggleGroup.Item>
                       <ToggleGroup.Item  
                         value="1"
                         title='Segunda'
-                        className={`w-8 h-8 rounded  ${weekDays.includes('1') ? 'bg-violet-500' : 'bg-zinc-900 '}`}
+                        className={`w-8 h-8 rounded  ${weekDay.includes('1') ? 'bg-violet-500' : 'bg-zinc-900 '}`}
                         >
                           S
                       </ToggleGroup.Item>
                       <ToggleGroup.Item
                         value="2"  
                         title='Terça'
-                        className={`w-8 h-8 rounded  ${weekDays.includes('2') ? 'bg-violet-500' : 'bg-zinc-900 '}`}
+                        className={`w-8 h-8 rounded  ${weekDay.includes('2') ? 'bg-violet-500' : 'bg-zinc-900 '}`}
                         >
                           T
                       </ToggleGroup.Item>
                       <ToggleGroup.Item 
                         value="3" 
                         title='Quarta'
-                        className={`w-8 h-8 rounded  ${weekDays.includes('3') ? 'bg-violet-500' : 'bg-zinc-900 '}`}
+                        className={`w-8 h-8 rounded  ${weekDay.includes('3') ? 'bg-violet-500' : 'bg-zinc-900 '}`}
                         >
                           Q
                       </ToggleGroup.Item>
                       <ToggleGroup.Item  
                         value="4"
                         title='Quinta'
-                        className={`w-8 h-8 rounded  ${weekDays.includes('4') ? 'bg-violet-500' : 'bg-zinc-900 '}`}
+                        className={`w-8 h-8 rounded  ${weekDay.includes('4') ? 'bg-violet-500' : 'bg-zinc-900 '}`}
                         >
                           Q
                       </ToggleGroup.Item>
                       <ToggleGroup.Item  
                         value="5"
                         title='Sexta'
-                        className={`w-8 h-8 rounded  ${weekDays.includes('5') ? 'bg-violet-500' : 'bg-zinc-900 '}`}
+                        className={`w-8 h-8 rounded  ${weekDay.includes('5') ? 'bg-violet-500' : 'bg-zinc-900 '}`}
                         >
                           S
                       </ToggleGroup.Item>
                       <ToggleGroup.Item  
                         value="6"
                         title='Sábado'
-                        className={`w-8 h-8 rounded  ${weekDays.includes('6') ? 'bg-violet-500' : 'bg-zinc-900 '}`}
+                        className={`w-8 h-8 rounded  ${weekDay.includes('6') ? 'bg-violet-500' : 'bg-zinc-900 '}`}
                         >
                           S
                       </ToggleGroup.Item>
