@@ -1,24 +1,24 @@
-import React from 'react';
-import { View, Modal, ModalProps, Text } from 'react-native';
+import React from 'react'
+import { View, Modal, ModalProps, Text } from 'react-native'
+import {} from '@expo/vector-icons'
 
-import { styles } from './styles';
+import { styles } from './styles'
 
 interface Props extends ModalProps {
-  discord: string;
+  discord: string
 }
 
 export function DuoMatch({ discord, ...rest }: Props) {
   return (
-  <Modal
-    {...rest}
-  >
-    <View style={styles.container}>
+    <Modal transparent statusBarTranslucent {...rest}>
+      <View style={styles.container}>
 
-      <Text style={styles.discord}>
-        {discord}
-      </Text>
+        <View style={styles.content}>
 
-    </View>
-  </Modal>
-  );
+
+        <Text style={styles.discord}>{discord}</Text>
+        </View>
+      </View>
+    </Modal>
+  )
 }
