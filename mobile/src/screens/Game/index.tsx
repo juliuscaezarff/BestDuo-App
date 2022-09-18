@@ -8,6 +8,7 @@ import { GameParams } from '../../@types/navigation';
 import { Background } from '../../components/Background';
 import { Heading } from '../../components/Heading';
 import { DuoCard, DuoCardProps } from '../../components/DuoCard';
+import { DuoMatch } from '../../components/DuoMatch';
 
 import logoImg from '../../assets/logo-nlw-esports.png'
 
@@ -85,6 +86,10 @@ export function Game() {
           )}
       />
 
+      <DuoMatch
+        visible={true}
+        discord="deX#1592"
+      />
     </SafeAreaView>
     </Background>
   );
