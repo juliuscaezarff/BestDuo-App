@@ -29,6 +29,12 @@ export function Game() {
   function handleGoBack() {
     navigation.goBack()
   }
+
+  async function getDiscordUser(adsId: string) {
+    fetch(`http://10.0.0.206:3333/ads/${adsId}/discord`)
+      .then(response => response.json())
+      .then(data => setDiscordDuoSelected(data.discord))
+  }
   
   useEffect(() => {
     fetch(`http://10.0.0.206:3333/games/${game.id}/ads`)
@@ -73,7 +79,7 @@ export function Game() {
           renderItem={({ item }) => (
             <DuoCard 
               data={item}
-              onConnect={() => {}}
+              onConnect={() => getDiscordUser(item.id)}
               />
           )}
           horizontal
