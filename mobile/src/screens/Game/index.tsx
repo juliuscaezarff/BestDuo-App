@@ -20,6 +20,7 @@ import { THEME } from '../../theme';
 export function Game() {
 
   const [duos, setDuos] =  useState<DuoCardProps[]>([])
+  const [discordDuoSelected, setDiscordDuoSelected] = useState('')
 
   const navigation = useNavigation()
   const route = useRoute()
@@ -87,7 +88,7 @@ export function Game() {
       />
 
       <DuoMatch
-        visible={true}
+        visible={discordDuoSelected.length > 0}
         discord="deX#1592"
       />
     </SafeAreaView>
