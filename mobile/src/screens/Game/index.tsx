@@ -4,6 +4,7 @@ import { useRoute, useNavigation } from '@react-navigation/native'
 import {Entypo } from '@expo/vector-icons'
 import { View, TouchableOpacity, Image, FlatList, Text } from 'react-native'
 import { GameParams } from '../../@types/navigation';
+import {ScrollView } from 'react-native'
 
 import { Background } from '../../components/Background';
 import { Heading } from '../../components/Heading';
