@@ -32,6 +32,11 @@ function App() {
       })
   }, [])
 
+  const settings = {
+    spaceBetween: 50,
+    slidesPerView: 3,
+  }
+
   return (
     <div className="max-w-[1344px] mx-auto flex flex-col items-center my-20">
       <img src={logo} alt="Logo NLW eSports" />
@@ -57,8 +62,8 @@ function App() {
         })}
       </div>
 
-      <Slider>
-        
+      <Slider settings={settings}>
+
       </Slider>
 
       <Dialog.Root>
