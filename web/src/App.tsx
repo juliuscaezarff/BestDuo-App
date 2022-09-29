@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react'
 import * as Dialog from '@radix-ui/react-dialog'
 import axios from 'axios'
-import { Swiper, SwiperSlide } from 'swiper/react'
 
 
 import { GameBanner } from './components/GameBanner'
 import { CreateAdBanner } from './components/CreateAdBanner'
 import { CreateAdModal } from './components/CreateAdModal'
+import Slider from './components/Slider/slider'
 
 
 import logo from './assets/logo-nlw-esports.svg'
@@ -57,11 +57,9 @@ function App() {
         })}
       </div>
 
-      <Swiper>
-        <SwiperSlide>
-
-        </SwiperSlide>
-      </Swiper>
+      <Slider>
+        
+      </Slider>
 
       <Dialog.Root>
         <CreateAdBanner />
