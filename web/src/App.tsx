@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import * as Dialog from '@radix-ui/react-dialog'
 import axios from 'axios'
+import { Swiper, SwiperSlide } from 'swiper/react'
 
 
 import { GameBanner } from './components/GameBanner'
@@ -55,6 +56,12 @@ function App() {
           )
         })}
       </div>
+
+      <Swiper>
+        <SwiperSlide>
+
+        </SwiperSlide>
+      </Swiper>
 
       <Dialog.Root>
         <CreateAdBanner />
