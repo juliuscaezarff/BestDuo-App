@@ -10,7 +10,7 @@ interface SliderProps {
 
 export default function Slider({ settings, children }: SliderProps ) {
   return (
-    <Swiper {...settings}>
+    <Swiper modules={[Navigation, Pagination, A11y]} {...settings} >
       {children}
     </Swiper>
   )
