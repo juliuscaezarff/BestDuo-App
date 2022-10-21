@@ -34,8 +34,10 @@ function App() {
 
   const settings: SliderProps = {
     spaceBetween: 50,
-    slidesPerView: 3,
-    navigation: true,
+    slidesPerView: games.length < 3 ? games.length : 3,
+    navigation: games.length >= 3,
+    draggable: games.length >= 3,
+    loop: games.length >= 3,
     pagination: {
       clickable: true,
     }
@@ -56,30 +58,19 @@ function App() {
       <div className="grid grid-cols-6 gap-6 mt-16">
         {games.map(game => {
           return (
+            <Slider settings={settings}>
+              <Slide key={game.id}>
             <GameBanner
               key={game.id}
               bannerUrl={game.bannerUrl}
               title={game.title}
               adsCount={game._count.ads}
             />
+            </Slide>
+            </Slider>
           )
         })}
       </div>
-
-      <Slider settings={settings}>
-        <Slide>
-          <h1>Teste 1</h1>
-        </Slide>
-        <Slide>
-          <h1>Teste 2</h1>
-        </Slide>
-        <Slide>
-          <h1>Teste 3</h1>
-        </Slide>
-        <Slide>
-          <h1>Teste 4</h1>
-        </Slide>
-      </Slider>
 
       <Dialog.Root>
         <CreateAdBanner />
