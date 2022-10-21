@@ -1,13 +1,12 @@
 import { useState, useEffect } from 'react'
 import * as Dialog from '@radix-ui/react-dialog'
 import axios from 'axios'
-import {  SwiperSlide, SwiperProps } from 'swiper/react'
 
 
 import { GameBanner } from './components/GameBanner'
 import { CreateAdBanner } from './components/CreateAdBanner'
 import { CreateAdModal } from './components/CreateAdModal'
-import Slider from './components/Slider/Slider'
+import { Slider, SliderProps, Slide } from './components/Slider'
 
 
 import logo from './assets/logo-nlw-esports.svg'
@@ -33,7 +32,7 @@ function App() {
       })
   }, [])
 
-  const settings: SwiperProps = {
+  const settings: SliderProps = {
     spaceBetween: 50,
     slidesPerView: 3,
     navigation: true,
@@ -68,18 +67,18 @@ function App() {
       </div>
 
       <Slider settings={settings}>
-        <SwiperSlide>
+        <Slide>
           <h1>Teste 1</h1>
-        </SwiperSlide>
-        <SwiperSlide>
+        </Slide>
+        <Slide>
           <h1>Teste 2</h1>
-        </SwiperSlide>
-        <SwiperSlide>
+        </Slide>
+        <Slide>
           <h1>Teste 3</h1>
-        </SwiperSlide>
-        <SwiperSlide>
+        </Slide>
+        <Slide>
           <h1>Teste 4</h1>
-        </SwiperSlide>
+        </Slide>
       </Slider>
 
       <Dialog.Root>
